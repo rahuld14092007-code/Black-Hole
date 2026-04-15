@@ -1,35 +1,47 @@
-# Black Hole Gravitational Lensing Simulator
+# 🌌 Gargantua Engine v6: Cinematic Relativity Simulator
 
-An advanced, pure-Python physics simulation that renders the gravitational lensing of a black hole and its accretion disk, similar to the visual effects seen in the movie *Interstellar*. 
+A high-performance, real-time black hole flight simulator built with **Python**, **ModernGL**, and **GLSL**. This project uses raymarching and general relativity approximations to render a physically-inspired visualization of a supermassive black hole.
 
-Unlike standard 3D rendering, this project relies on **Raymarching** and **General Relativity**. It traces the paths of light rays backward from the camera to the accretion disk, accounting for the intense gravitational curvature of spacetime.
+---
 
-## 🚀 Features
-* **Vectorized Raymarching**: Utilizes `numpy` to simultaneously calculate thousands of photon trajectories for high performance.
-* **Relativistic Physics**: Uses a 4th-Order Runge-Kutta (RK4) numerical integrator to solve the equations of motion with General Relativity corrections.
-* **Accretion Disk Rendering**: Simulates a glowing, temperature-mapped accretion disk with Doppler shifting approximations.
-* **Procedural Output**: Generates a high-fidelity image of the warped disk using `matplotlib`.
+## 📖 Project Description
 
-## 🧠 The Physics (Geodesic Equations)
+The **Gargantua Engine** allows users to pilot a virtual observer through the warped spacetime of a singularity. Unlike static visualizations, this engine renders gravitational lensing, the Doppler effect, and volumetric gas particles in real-time at 60+ FPS.
 
-In Newtonian gravity, light travels in straight lines. In General Relativity, mass warps spacetime, forcing light to travel along curved paths called null geodesics. 
+### Key Features:
+* **Volumetric Gas Particles:** Real-time swirling plasma disk using Flow-Field Advection.
+* **Gravitational Lensing:** Light rays bend around the event horizon, creating the iconic Einstein Ring.
+* **First-Person Flight:** Full 6-Degrees-of-Freedom (6-DOF) movement.
+* **Relativistic Beaming:** Accurate brightness shifts based on gas velocity relative to the camera.
+* **Dynamic Background:** A high-contrast starfield that warps and stretches under intense gravity.
 
-This simulation simplifies the full Einstein field equations for a non-rotating (Schwarzschild) black hole by applying a relativistic correction term to the standard Newtonian acceleration:
+---
 
-$$\vec{a} = -\frac{GM}{r^2}\hat{r} - \frac{3GM h^2}{c^2 r^4}\hat{r}$$
+## 🕹️ Controls & Navigation
 
-Where:
-* $G$ is the gravitational constant.
-* $M$ is the mass of the black hole.
-* $c$ is the speed of light.
-* $r$ is the distance from the singularity.
-* $h = |\vec{r} \times \vec{v}|$ is the specific angular momentum of the photon.
+The simulator uses a standard FPS (First-Person) control scheme. **The mouse is automatically captured** for a full 360-degree immersive experience.
 
-The second term ($\frac{3GM h^2}{c^2 r^4}$) is the relativistic correction that allows photons to orbit the black hole (the photon sphere) or fall past the event horizon.
+### 🚀 Movement
+* **W / S** : Forward / Backward
+* **A / D** : Strafe Left / Right
+* **Q / E** : Descend / Ascend (Vertical Movement)
 
-## ⚙️ Installation
+### 🔭 View & Zoom
+* **Mouse Move** : Look around (Pitch and Yaw)
+* **Scroll Wheel** : Zoom In / Out (Telescopic FOV adjustment)
 
-1. Clone the repository:
+### 🔬 Physics & System
+* **[ 1 ]** : Gargantua Mode (Realistic Orange Disk)
+* **[ 2 ]** : Blue Quasar Mode (High-Energy Blue/Violet)
+* **[ 3 ]** : The Void (Singularity & Stars only)
+* **[ R ]** : **Emergency Reset** (Teleports camera back to safe start position)
+* **[ ESC ]** : Exit and release mouse
+
+---
+
+## 🛠️ Installation & Setup
+
+1. **Install Python 3.8+**
+2. **Install Dependencies:**
    ```bash
-   git clone [https://github.com/yourusername/interstellar-blackhole-sim.git](https://github.com/yourusername/interstellar-blackhole-sim.git)
-   cd interstellar-blackhole-sim
+   pip install moderngl moderngl-window numpy
